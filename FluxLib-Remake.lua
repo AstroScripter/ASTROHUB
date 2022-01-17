@@ -1,4 +1,5 @@
 ---@diagnostic disable: undefined-global
+if _G.NoBackGround == nil then _G.NoBackGround = false end
 local Flux = {RainbowColorValue = 0, HueSelectionPosition = 0}
 local PresetColor = Color3.fromRGB(255, 255, 255)
 local UserInputService = game:GetService("UserInputService")
@@ -111,6 +112,11 @@ function Flux:Window(text, bottom, mainclr, toclose)
 	MainFrame.ClipsDescendants = true
 	MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
 	MainFrame.Size = UDim2.new(0, 0, 0, 0)
+	if _G.NoBackGround then
+		MainFrame.BackgroundTransparency = 0.7
+	else
+		MainFrame.BackgroundTransparency = 0
+	end
 
 	MainCorner.CornerRadius = UDim.new(0, 5)
 	MainCorner.Name = "MainCorner"
@@ -120,6 +126,11 @@ function Flux:Window(text, bottom, mainclr, toclose)
 	LeftFrame.Parent = MainFrame
 	LeftFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 	LeftFrame.Size = UDim2.new(0, 205, 0, 484)
+	if _G.NoBackGround then
+		LeftFrame.BackgroundTransparency = 0.7
+	else
+		LeftFrame.BackgroundTransparency = 0
+	end
 
 	LeftCorner.CornerRadius = UDim.new(0, 5)
 	LeftCorner.Name = "LeftCorner"
@@ -492,6 +503,11 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			Button.Text = ""
 			Button.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Button.TextSize = 14.000
+			if _G.NoBackGround then
+				Button.BackgroundTransparency = 0.7
+			else
+				Button.BackgroundTransparency = 0
+			end
 
 			ButtonCorner.CornerRadius = UDim.new(0, 4)
 			ButtonCorner.Name = "ButtonCorner"
@@ -715,6 +731,11 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			Toggle.Text = ""
 			Toggle.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Toggle.TextSize = 14.000
+			if _G.NoBackGround then
+				Toggle.BackgroundTransparency = 0.7
+			else
+				Toggle.BackgroundTransparency = 0
+			end
 
 			ToggleCorner.CornerRadius = UDim.new(0, 4)
 			ToggleCorner.Name = "ToggleCorner"
@@ -955,7 +976,7 @@ function Flux:Window(text, bottom, mainclr, toclose)
 		function ContainerContent:Slider(text, desc, min, max, start, callback)
 			local SliderFunc = {}
 			local SliderDescToggled = false
-            local dragging = false
+			local dragging = false
 			if desc == "" then
 				desc = "There is no description for this slider."
 			end
@@ -985,6 +1006,11 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			Slider.Text = ""
 			Slider.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Slider.TextSize = 14.000
+			if _G.NoBackGround then
+				Slider.BackgroundTransparency = 0.7
+			else
+				Slider.BackgroundTransparency = 0
+			end
 
 			SliderCorner.CornerRadius = UDim.new(0, 4)
 			SliderCorner.Name = "SliderCorner"
@@ -1201,42 +1227,42 @@ function Flux:Window(text, bottom, mainclr, toclose)
 				SliderDescToggled = not SliderDescToggled
 			end)
 
-            local function move(input)
-                local pos =
-                    UDim2.new(
-                        math.clamp((input.Position.X - SlideFrame.AbsolutePosition.X) / SlideFrame.AbsoluteSize.X, 0, 1),
-                        -6,
-                    -1.30499995,
-                        0
-                    )
-                local pos1 =
-                    UDim2.new(
-                        math.clamp((input.Position.X - SlideFrame.AbsolutePosition.X) / SlideFrame.AbsoluteSize.X, 0, 1),
-                        0,
-                        0,
-                        3
-                    )
-                CurrentValueFrame:TweenSize(pos1, "Out", "Sine", 0.1, true)
-                SlideCircle:TweenPosition(pos, "Out", "Sine", 0.1, true)
-                local value = math.floor(((pos.X.Scale * max) / max) * (max - min) + min)
-                Value.Text = tostring(value)
-                pcall(callback, value)
-            end
-            SlideCircle.InputBegan:Connect(function(input)
-                    if input.UserInputType == Enum.UserInputType.MouseButton1 then
-                        dragging = true
-                    end
-                end)
-            SlideCircle.InputEnded:Connect(function(input)
-                    if input.UserInputType == Enum.UserInputType.MouseButton1 then
-                        dragging = false
-                    end
-                end)
-            game:GetService("UserInputService").InputChanged:Connect(function(input)
-                if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
-                    move(input)
-                end
-            end)
+		    local function move(input)
+			local pos =
+			    UDim2.new(
+				math.clamp((input.Position.X - SlideFrame.AbsolutePosition.X) / SlideFrame.AbsoluteSize.X, 0, 1),
+				-6,
+			    -1.30499995,
+				0
+			    )
+			local pos1 =
+			    UDim2.new(
+				math.clamp((input.Position.X - SlideFrame.AbsolutePosition.X) / SlideFrame.AbsoluteSize.X, 0, 1),
+				0,
+				0,
+				3
+			    )
+			CurrentValueFrame:TweenSize(pos1, "Out", "Sine", 0.1, true)
+			SlideCircle:TweenPosition(pos, "Out", "Sine", 0.1, true)
+			local value = math.floor(((pos.X.Scale * max) / max) * (max - min) + min)
+			Value.Text = tostring(value)
+			pcall(callback, value)
+		    end
+		    SlideCircle.InputBegan:Connect(function(input)
+			    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+				dragging = true
+			    end
+			end)
+		    SlideCircle.InputEnded:Connect(function(input)
+			    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+				dragging = false
+			    end
+			end)
+		    game:GetService("UserInputService").InputChanged:Connect(function(input)
+			if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
+			    move(input)
+			end
+		    end)
 			Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 			function SliderFunc:Change(tochange)
 				CurrentValueFrame.Size = UDim2.new((tochange or 0) / max, 0, 0, 3)
@@ -1274,6 +1300,11 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			Dropdown.Text = ""
 			Dropdown.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Dropdown.TextSize = 14.000
+			if _G.NoBackGround then
+				Dropdown.BackgroundTransparency = 0.7
+			else
+				Dropdown.BackgroundTransparency = 0
+			end
 
 			DropdownCorner.CornerRadius = UDim.new(0, 4)
 			DropdownCorner.Name = "DropdownCorner"
@@ -1470,6 +1501,11 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			Item.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Item.TextSize = 15.000
 			Item.TextTransparency = 0.300
+			if _G.NoBackGround then
+				Item.BackgroundTransparency = 0.7
+			else
+				Item.BackgroundTransparency = 0
+			end
 
 			ItemCorner.CornerRadius = UDim.new(0, 4)
 			ItemCorner.Name = "ItemCorner"
@@ -1561,6 +1597,11 @@ function Flux:Window(text, bottom, mainclr, toclose)
 				Item.TextColor3 = Color3.fromRGB(255, 255, 255)
 				Item.TextSize = 15.000
 				Item.TextTransparency = 0.300
+				if _G.NoBackGround then
+					Item.BackgroundTransparency = 0.7
+				else
+					Item.BackgroundTransparency = 0
+				end
 
 				ItemCorner.CornerRadius = UDim.new(0, 4)
 				ItemCorner.Name = "ItemCorner"
@@ -1737,6 +1778,11 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			Line.Text = ""
 			Line.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Line.TextSize = 14.000
+			if _G.NoBackGround then
+				Line.BackgroundTransparency = 0.7
+			else
+				Line.BackgroundTransparency = 0
+			end
 
 			LineCorner.CornerRadius = UDim.new(0, 4)
 			LineCorner.Name = "LineCorner"
@@ -1761,6 +1807,11 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			Label.Text = ""
 			Label.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Label.TextSize = 14.000
+			if _G.NoBackGround then
+				Label.BackgroundTransparency = 0.7
+			else
+				Label.BackgroundTransparency = 0
+			end
 
 			LabelCorner.CornerRadius = UDim.new(0, 4)
 			LabelCorner.Name = "LabelCorner"
@@ -1817,6 +1868,11 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			Textbox.Text = ""
 			Textbox.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Textbox.TextSize = 14.000
+			if _G.NoBackGround then
+				Textbox.BackgroundTransparency = 0.7
+			else
+				Textbox.BackgroundTransparency = 0
+			end
 
 			TextboxCorner.CornerRadius = UDim.new(0, 4)
 			TextboxCorner.Name = "TextboxCorner"
@@ -2042,6 +2098,11 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			Bind.Text = ""
 			Bind.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Bind.TextSize = 14.000
+			if _G.NoBackGround then
+				Bind.BackgroundTransparency = 0.7
+			else
+				Bind.BackgroundTransparency = 0
+			end
 
 			BindCorner.CornerRadius = UDim.new(0, 4)
 			BindCorner.Name = "BindCorner"
@@ -2311,6 +2372,11 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			Button.Text = ""
 			Button.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Button.TextSize = 14.000
+			if _G.NoBackGround then
+				Button.BackgroundTransparency = 0.7
+			else
+				Button.BackgroundTransparency = 0
+			end
 
 			ButtonCorner.CornerRadius = UDim.new(0, 4)
 			ButtonCorner.Name = "ButtonCorner"
