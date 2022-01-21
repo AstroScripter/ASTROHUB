@@ -825,6 +825,8 @@ function Material.Load(Config)
 		TweenService:Create(MainFrame, TweenInfo.new(0.15), {Size = Open and UDim2.fromOffset(SizeX,SizeY) or UDim2.fromOffset(SizeX,30)}):Play()
 		TweenService:Create(MinimiseButton, TweenInfo.new(0.15), {ImageColor3 = Open and Theme.Minimise or Theme.Maximise}):Play()
 		TweenService:Create(MinimiseShadow, TweenInfo.new(0.15), {ImageColor3 = Open and Theme.MinimiseAccent or Theme.MaximiseAccent}):Play()
+		game:GetService'CoreGui'[Title].MainFrame['Content'].Visible = not game:GetService'CoreGui'[Title].MainFrame['Content'].Visible
+		game:GetService'CoreGui'[Title].MainFrame['NavBar'].Visible = not game:GetService'CoreGui'[Title].MainFrame['NavBar'].Visible
 		if Open then
 			wait(0.15)
 			MainFrame.ClipsDescendants = false
