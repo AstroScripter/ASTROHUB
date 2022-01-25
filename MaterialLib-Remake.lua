@@ -704,6 +704,7 @@ function Material.Load(Config)
 	local SizeX = Config.SizeX or 300
 	local SizeY = Config.SizeY or 500
 	local Theme = Config.Theme or "Light"
+	local GuiBind = Config.Bind or Enum.KeyCode.RightControl
 	local Overrides = Config.ColorOverrides or {}
 	local Open = true
 
@@ -888,6 +889,19 @@ function Material.Load(Config)
 			end
 		end)
 	end
+
+	local uitoggled = false
+	InputService.InputBegan:Connect(function(io)
+		if io.KeyCode == GuiBind then
+			if uitoggled == false then
+				uitoggled = true
+				game:GetService'CoreGui'[Title].Enabled = false
+			else
+				uitoggled = false
+				game:GetService'CoreGui'[Title].Enabled = true
+			end
+		end
+	end)
 
 	local TabCount = 0
 	local TabLibrary = {}
