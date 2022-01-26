@@ -685,14 +685,14 @@ function Material.Load(Config)
 
 	local MinimiseButton = Objects.new("SmoothButton")
 	MinimiseButton.Size = UDim2.fromOffset(20,20)
-	MinimiseButton.Position = UDim2.fromScale(1,0) + UDim2.fromOffset(-25,5)
+	MinimiseButton.Position = UDim2.fromScale(1,0) + UDim2.fromOffset(-50, 5)
 	MinimiseButton.ImageColor3 = Theme.Minimise
 	MinimiseButton.ImageTransparency = 1
 	MinimiseButton.Parent = TitleBar
 
 	local DeleteButton = Objects.new("SmoothButton")
 	DeleteButton.Size = UDim2.fromOffset(20,20)
-	DeleteButton.Position = UDim2.fromScale(1,0) + UDim2.fromOffset(-50,5)
+	DeleteButton.Position = UDim2.fromScale(1,0) + UDim2.fromOffset(-25, 5)
 	DeleteButton.ImageColor3 = Theme.Delete
 	DeleteButton.ImageTransparency = 1
 	DeleteButton.Parent = TitleBar
