@@ -11,43 +11,13 @@ local CoreGuiService = game:GetService("CoreGui")
 local ContentService = game:GetService("ContentProvider")
 
 local Themes = {
-	Light = {
-        MainFrame = Color3.fromRGB(255,255,255),
-        Minimise = Color3.fromRGB(255,106,0),
-        MinimiseAccent = Color3.fromRGB(147,59,0),
-        Maximise = Color3.fromRGB(25,255,0),
-        MaximiseAccent = Color3.fromRGB(0,255,110),
-        NavBar = Color3.fromRGB(124,37,255),
-        NavBarAccent = Color3.fromRGB(255,255,255),
-        NavBarInvert = Color3.fromRGB(30,30,30),
-        TitleBar = Color3.fromRGB(124,37,255),
-        TitleBarAccent = Color3.fromRGB(255,255,255),
-        Overlay = Color3.fromRGB(124,37,255),
-        Banner = Color3.fromRGB(255,255,255),
-        BannerAccent = Color3.fromRGB(124,37,255),
-        Content = Color3.fromRGB(124,37,255),
-        Button = Color3.fromRGB(124,37,255),
-        ButtonAccent = Color3.fromRGB(255,255,255),
-        ChipSet = Color3.fromRGB(124,37,255),
-        ChipSetAccent = Color3.fromRGB(255,255,255),
-        DataTable = Color3.fromRGB(124,37,255),
-        DataTableAccent = Color3.fromRGB(255,255,255),
-        Slider = Color3.fromRGB(255,255,255),
-        SliderAccent = Color3.fromRGB(124,37,255),
-        Toggle = Color3.fromRGB(124,37,255),
-        ToggleAccent = Color3.fromRGB(255,255,255),
-        Dropdown = Color3.fromRGB(255,255,255),
-        DropdownAccent = Color3.fromRGB(124,37,255),
-        ColorPicker = Color3.fromRGB(255,255,255),
-        ColorPickerAccent = Color3.fromRGB(124,37,255),
-        TextField = Color3.fromRGB(124,37,255),
-        TextFieldAccent = Color3.fromRGB(124,37,255),
-	},
 	Dark = {
 		MainFrame = Color3.fromRGB(30,30,30),
 		Minimise = Color3.fromRGB(255,106,0),
 		MinimiseAccent = Color3.fromRGB(147,59,0),
 		Maximise = Color3.fromRGB(25,255,0),
+		Delete = Color3.fromRGB(255, 0, 0),
+		DeleteAccent = Color3.fromRGB(147, 0, 0),
 		MaximiseAccent = Color3.fromRGB(0,255,110),
 		NavBar = Color3.fromRGB(55,55,55),
 		NavBarAccent = Color3.fromRGB(255,255,255),
@@ -75,102 +45,6 @@ local Themes = {
 		TextField = Color3.fromRGB(175,175,175),
 		TextFieldAccent = Color3.fromRGB(255,255,255),
 	},
-	Mocha = {
-		MainFrame = Color3.fromRGB(255,255,255),
-		Minimise = Color3.fromRGB(219, 210, 202),
-		MinimiseAccent = Color3.fromRGB(219, 210, 202),
-		Maximise = Color3.fromRGB(189, 183, 177),
-		MaximiseAccent = Color3.fromRGB(189, 183, 177),
-		NavBar = Color3.fromRGB(176, 148, 125),
-		NavBarAccent = Color3.fromRGB(255,255,255),
-		NavBarInvert = Color3.fromRGB(30,30,30),
-		TitleBar = Color3.fromRGB(176, 148, 125),
-		TitleBarAccent = Color3.fromRGB(255,255,255),
-		Overlay = Color3.fromRGB(176, 148, 125),
-		Banner = Color3.fromRGB(255,255,255),
-		BannerAccent = Color3.fromRGB(176, 148, 125),
-		Content = Color3.fromRGB(176, 148, 125),
-		Button = Color3.fromRGB(176, 148, 125),
-		ButtonAccent = Color3.fromRGB(255,255,255),
-		ChipSet = Color3.fromRGB(176, 148, 125),
-		ChipSetAccent = Color3.fromRGB(255,255,255),
-		DataTable = Color3.fromRGB(176, 148, 125),
-		DataTableAccent = Color3.fromRGB(255,255,255),
-		Slider = Color3.fromRGB(255,255,255),
-		SliderAccent = Color3.fromRGB(176, 148, 125),
-		Toggle = Color3.fromRGB(176, 148, 125),
-		ToggleAccent = Color3.fromRGB(255,255,255),
-		Dropdown = Color3.fromRGB(255,255,255),
-		DropdownAccent = Color3.fromRGB(176, 148, 125),
-		ColorPicker = Color3.fromRGB(255,255,255),
-		ColorPickerAccent = Color3.fromRGB(176, 148, 125),
-		TextField = Color3.fromRGB(175,175,175),
-		TextFieldAccent = Color3.fromRGB(255,255,255)
-	},
-	Aqua = {
-		MainFrame = Color3.fromRGB(255,255,255),
-		Minimise = Color3.fromRGB(219, 210, 202),
-		MinimiseAccent = Color3.fromRGB(219, 210, 202),
-		Maximise = Color3.fromRGB(189, 183, 177),
-		MaximiseAccent = Color3.fromRGB(189, 183, 177),
-		NavBar = Color3.fromRGB(116, 112, 140),
-		NavBarAccent = Color3.fromRGB(255,255,255),
-		NavBarInvert = Color3.fromRGB(30,30,30),
-		TitleBar = Color3.fromRGB(116, 112, 140),
-		TitleBarAccent = Color3.fromRGB(255,255,255),
-		Overlay = Color3.fromRGB(116, 112, 140),
-		Banner = Color3.fromRGB(255,255,255),
-		BannerAccent = Color3.fromRGB(116, 112, 140),
-		Content = Color3.fromRGB(116, 112, 140),
-		Button = Color3.fromRGB(116, 112, 140),
-		ButtonAccent = Color3.fromRGB(255,255,255),
-		ChipSet = Color3.fromRGB(116, 112, 140),
-		ChipSetAccent = Color3.fromRGB(255,255,255),
-		DataTable = Color3.fromRGB(116, 112, 140),
-		DataTableAccent = Color3.fromRGB(255,255,255),
-		Slider = Color3.fromRGB(255,255,255),
-		SliderAccent = Color3.fromRGB(116, 112, 140),
-		Toggle = Color3.fromRGB(116, 112, 140),
-		ToggleAccent = Color3.fromRGB(255,255,255),
-		Dropdown = Color3.fromRGB(255,255,255),
-		DropdownAccent = Color3.fromRGB(116, 112, 140),
-		ColorPicker = Color3.fromRGB(255,255,255),
-		ColorPickerAccent = Color3.fromRGB(116, 112, 140),
-		TextField = Color3.fromRGB(175,175,175),
-		TextFieldAccent = Color3.fromRGB(255,255,255)
-	},
-	Jester = {
-		MainFrame = Color3.fromRGB(255,255,255),
-		Minimise = Color3.fromRGB(219, 210, 202),
-		MinimiseAccent = Color3.fromRGB(219, 210, 202),
-		Maximise = Color3.fromRGB(189, 183, 177),
-		MaximiseAccent = Color3.fromRGB(189, 183, 177),
-		NavBar = Color3.fromRGB(219, 68, 103),
-		NavBarAccent = Color3.fromRGB(255,255,255),
-		NavBarInvert = Color3.fromRGB(30,30,30),
-		TitleBar = Color3.fromRGB(219, 68, 103),
-		TitleBarAccent = Color3.fromRGB(255,255,255),
-		Overlay = Color3.fromRGB(219, 68, 103),
-		Banner = Color3.fromRGB(255,255,255),
-		BannerAccent = Color3.fromRGB(219, 68, 103),
-		Content = Color3.fromRGB(219, 68, 103),
-		Button = Color3.fromRGB(219, 68, 103),
-		ButtonAccent = Color3.fromRGB(255,255,255),
-		ChipSet = Color3.fromRGB(219, 68, 103),
-		ChipSetAccent = Color3.fromRGB(255,255,255),
-		DataTable = Color3.fromRGB(219, 68, 103),
-		DataTableAccent = Color3.fromRGB(255,255,255),
-		Slider = Color3.fromRGB(255,255,255),
-		SliderAccent = Color3.fromRGB(219, 68, 103),
-		Toggle = Color3.fromRGB(219, 68, 103),
-		ToggleAccent = Color3.fromRGB(255,255,255),
-		Dropdown = Color3.fromRGB(255,255,255),
-		DropdownAccent = Color3.fromRGB(219, 68, 103),
-		ColorPicker = Color3.fromRGB(255,255,255),
-		ColorPickerAccent = Color3.fromRGB(219, 68, 103),
-		TextField = Color3.fromRGB(175,175,175),
-		TextFieldAccent = Color3.fromRGB(255,255,255),
-	}
 }
 
 local Types = {
@@ -700,7 +574,7 @@ end
 
 function Material.Load(Config)
 	local Style = (Config.Style and math.clamp(Config.Style, 1, 3)) or 1
-	local Title = Config.Title or "MaterialLua"
+	local Title = Config.Title or "AstroHub"
 	local SizeX = Config.SizeX or 300
 	local SizeY = Config.SizeY or 500
 	local Theme = Config.Theme or "Light"
@@ -708,6 +582,7 @@ function Material.Load(Config)
 	local Overrides = Config.ColorOverrides or {}
 	local Open = true
 
+	if game:GetService'CoreGui':FindFirstChild(Title) then game:GetService'CoreGui'[Title]:Destroy() end
 	Theme = Themes[Theme]
 
 	ThisTheme = Theme
@@ -815,10 +690,26 @@ function Material.Load(Config)
 	MinimiseButton.ImageTransparency = 1
 	MinimiseButton.Parent = TitleBar
 
+	local DeleteButton = Objects.new("SmoothButton")
+	DeleteButton.Size = UDim2.fromOffset(20,20)
+	DeleteButton.Position = UDim2.fromScale(1,0) + UDim2.fromOffset(-50,5)
+	DeleteButton.ImageColor3 = Theme.Delete
+	DeleteButton.ImageTransparency = 1
+	DeleteButton.Parent = TitleBar
+
 	local MinimiseShadow = Objects.new("Shadow")
 	MinimiseShadow.ImageColor3 = Theme.MinimiseAccent
 	MinimiseShadow.ImageTransparency = 1
 	MinimiseShadow.Parent = MinimiseButton
+
+	local DeleteShadow = Objects.new("Shadow")
+	DeleteShadow.ImageColor3 = Theme.DeleteAccent
+	DeleteShadow.ImageTransparency = 1
+	DeleteShadow.Parent = DeleteButton
+
+	DeleteButton.MouseButton1Click:Connect(function ()
+		if game:GetService'CoreGui':FindFirstChild(Title) then game:GetService'CoreGui'[Title]:Destroy() end
+	end)
 
 	MinimiseButton.MouseButton1Down:Connect(function()
 		Open = not Open
@@ -854,6 +745,8 @@ function Material.Load(Config)
 	TweenService:Create(TitleText, TweenInfo.new(1), {TextTransparency = 0}):Play()
 	TweenService:Create(MinimiseButton, TweenInfo.new(1), {ImageTransparency = 0}):Play()
 	TweenService:Create(MinimiseShadow, TweenInfo.new(1), {ImageTransparency = 0}):Play()
+	TweenService:Create(DeleteButton, TweenInfo.new(1), {ImageTransparency = 0}):Play()
+	TweenService:Create(DeleteShadow, TweenInfo.new(1), {ImageTransparency = 0}):Play()
 	TweenService:Create(Content, TweenInfo.new(1), {ImageTransparency = 0.8}):Play()
 
 	wait(1)
