@@ -1,5 +1,11 @@
 ---@diagnostic disable: undefined-global
-if _G.NoBackGround == nil then _G.NoBackGround = false end
+repeat wait() until game:IsLoaded()
+if game:GetService("CoreGui"):FindFirstChild("AstroHub") then game:GetService("CoreGui"):FindFirstChild("AstroHub"):Destroy() end
+if _G.NoBackGround then
+	BGTransparency = 0.7
+else
+	BGTransparency = 0
+end
 local Flux = {RainbowColorValue = 0, HueSelectionPosition = 0}
 local PresetColor = Color3.fromRGB(255, 255, 255)
 local UserInputService = game:GetService("UserInputService")
@@ -112,11 +118,7 @@ function Flux:Window(text, bottom, mainclr, toclose)
 	MainFrame.ClipsDescendants = true
 	MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
 	MainFrame.Size = UDim2.new(0, 0, 0, 0)
-	if _G.NoBackGround then
-		MainFrame.BackgroundTransparency = 0.7
-	else
-		MainFrame.BackgroundTransparency = 0
-	end
+	MainFrame.BackgroundTransparency = BGTransparency
 
 	MainCorner.CornerRadius = UDim.new(0, 5)
 	MainCorner.Name = "MainCorner"
@@ -126,11 +128,7 @@ function Flux:Window(text, bottom, mainclr, toclose)
 	LeftFrame.Parent = MainFrame
 	LeftFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 	LeftFrame.Size = UDim2.new(0, 205, 0, 484)
-	if _G.NoBackGround then
-		LeftFrame.BackgroundTransparency = 0.7
-	else
-		LeftFrame.BackgroundTransparency = 0
-	end
+	LeftFrame.BackgroundTransparency = BGTransparency
 
 	LeftCorner.CornerRadius = UDim.new(0, 5)
 	LeftCorner.Name = "LeftCorner"
@@ -212,11 +210,6 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			end
 		end
 	end)
-
-	function Flux:WinUpdate(newText, newBottom)
-		Title.Text = newText
-		BottomText.Text = newBottom
-	end
 
 	function Flux:Notification(desc, buttontitle)
 		for i, v in next, MainFrame:GetChildren() do
@@ -503,11 +496,7 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			Button.Text = ""
 			Button.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Button.TextSize = 14.000
-			if _G.NoBackGround then
-				Button.BackgroundTransparency = 0.7
-			else
-				Button.BackgroundTransparency = 0
-			end
+			Button.BackgroundTransparency = BGTransparency
 
 			ButtonCorner.CornerRadius = UDim.new(0, 4)
 			ButtonCorner.Name = "ButtonCorner"
@@ -731,11 +720,7 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			Toggle.Text = ""
 			Toggle.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Toggle.TextSize = 14.000
-			if _G.NoBackGround then
-				Toggle.BackgroundTransparency = 0.7
-			else
-				Toggle.BackgroundTransparency = 0
-			end
+			Toggle.BackgroundTransparency = BGTransparency
 
 			ToggleCorner.CornerRadius = UDim.new(0, 4)
 			ToggleCorner.Name = "ToggleCorner"
@@ -1006,11 +991,7 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			Slider.Text = ""
 			Slider.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Slider.TextSize = 14.000
-			if _G.NoBackGround then
-				Slider.BackgroundTransparency = 0.7
-			else
-				Slider.BackgroundTransparency = 0
-			end
+			Slider.BackgroundTransparency = BGTransparency
 
 			SliderCorner.CornerRadius = UDim.new(0, 4)
 			SliderCorner.Name = "SliderCorner"
@@ -1300,11 +1281,7 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			Dropdown.Text = ""
 			Dropdown.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Dropdown.TextSize = 14.000
-			if _G.NoBackGround then
-				Dropdown.BackgroundTransparency = 0.7
-			else
-				Dropdown.BackgroundTransparency = 0
-			end
+			Dropdown.BackgroundTransparency = BGTransparency
 
 			DropdownCorner.CornerRadius = UDim.new(0, 4)
 			DropdownCorner.Name = "DropdownCorner"
@@ -1501,11 +1478,7 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			Item.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Item.TextSize = 15.000
 			Item.TextTransparency = 0.300
-			if _G.NoBackGround then
-				Item.BackgroundTransparency = 0.7
-			else
-				Item.BackgroundTransparency = 0
-			end
+			Item.BackgroundTransparency = BGTransparency
 
 			ItemCorner.CornerRadius = UDim.new(0, 4)
 			ItemCorner.Name = "ItemCorner"
@@ -1597,11 +1570,7 @@ function Flux:Window(text, bottom, mainclr, toclose)
 				Item.TextColor3 = Color3.fromRGB(255, 255, 255)
 				Item.TextSize = 15.000
 				Item.TextTransparency = 0.300
-				if _G.NoBackGround then
-					Item.BackgroundTransparency = 0.7
-				else
-					Item.BackgroundTransparency = 0
-				end
+				Item.BackgroundTransparency = BGTransparency
 
 				ItemCorner.CornerRadius = UDim.new(0, 4)
 				ItemCorner.Name = "ItemCorner"
@@ -1778,11 +1747,7 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			Line.Text = ""
 			Line.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Line.TextSize = 14.000
-			if _G.NoBackGround then
-				Line.BackgroundTransparency = 0.7
-			else
-				Line.BackgroundTransparency = 0
-			end
+			Line.BackgroundTransparency = BGTransparency
 
 			LineCorner.CornerRadius = UDim.new(0, 4)
 			LineCorner.Name = "LineCorner"
@@ -1807,11 +1772,7 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			Label.Text = ""
 			Label.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Label.TextSize = 14.000
-			if _G.NoBackGround then
-				Label.BackgroundTransparency = 0.7
-			else
-				Label.BackgroundTransparency = 0
-			end
+			Label.BackgroundTransparency = BGTransparency
 
 			LabelCorner.CornerRadius = UDim.new(0, 4)
 			LabelCorner.Name = "LabelCorner"
@@ -1868,11 +1829,7 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			Textbox.Text = ""
 			Textbox.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Textbox.TextSize = 14.000
-			if _G.NoBackGround then
-				Textbox.BackgroundTransparency = 0.7
-			else
-				Textbox.BackgroundTransparency = 0
-			end
+			Textbox.BackgroundTransparency = BGTransparency
 
 			TextboxCorner.CornerRadius = UDim.new(0, 4)
 			TextboxCorner.Name = "TextboxCorner"
@@ -2098,11 +2055,7 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			Bind.Text = ""
 			Bind.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Bind.TextSize = 14.000
-			if _G.NoBackGround then
-				Bind.BackgroundTransparency = 0.7
-			else
-				Bind.BackgroundTransparency = 0
-			end
+			Bind.BackgroundTransparency = BGTransparency
 
 			BindCorner.CornerRadius = UDim.new(0, 4)
 			BindCorner.Name = "BindCorner"
@@ -2245,8 +2198,6 @@ function Flux:Window(text, bottom, mainclr, toclose)
 		local ContainerLayout = Instance.new("UIListLayout")
 		local LeftContain = Instance.new("ScrollingFrame")
 		local LeftCorner = Instance.new("UIListLayout")
-		local Line = Instance.new("TextButton")
-		local LineCorner = Instance.new("UICorner")
 		local RightContain = Instance.new("ScrollingFrame")
 		local RightCorner = Instance.new("UIListLayout")
 
@@ -2258,23 +2209,6 @@ function Flux:Window(text, bottom, mainclr, toclose)
 		Container.Position = UDim2.new(0.321529746, 0, 0.0475206599, 0)
 		Container.Size = UDim2.new(0, 470, 0, 438)
 		Container.Visible = false
-
-		Line.Name = "Line"
-		Line.Parent = Container
-		Line.BackgroundColor3 = MainColor
-		Line.ClipsDescendants = true
-		Line.Position = UDim2.new(0.5, 0, 0, 0)
-		Line.Size = UDim2.new(0, 4, 0, 438)
-		Line.AutoButtonColor = false
-		Line.Font = Enum.Font.SourceSans
-		Line.Text = ""
-		Line.TextColor3 = Color3.fromRGB(0, 0, 0)
-		Line.TextSize = 14.000
-		Line.Visible = true
-
-		LineCorner.CornerRadius = UDim.new(0, 4)
-		LineCorner.Name = "LineCorner"
-		LineCorner.Parent = Line
 
 		LeftContain.Name = "Container"
 		LeftContain.Parent = Container
@@ -2301,8 +2235,8 @@ function Flux:Window(text, bottom, mainclr, toclose)
 		RightContain.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		RightContain.BackgroundTransparency = 1.000
 		RightContain.BorderSizePixel = 0
-		RightContain.Position = UDim2.new(0.515, 0, 0, 0)
-		RightContain.Size = UDim2.new(0, 227, 0, 438)
+		RightContain.Position = UDim2.new(0, 240, 0, 0)
+		RightContain.Size = UDim2.new(0, 232, 0, 438)
 		RightContain.CanvasSize = UDim2.new(0, 0, 0, 0)
 		RightContain.ScrollBarThickness = 5
 		RightContain.Visible = true
@@ -2341,10 +2275,7 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			end
 		end)
 		local ContainerContent = {}
-		function ContainerContent:Button(text, desc, content, callback)
-			if desc == "" then
-				desc = "There is no description for this button."
-			end
+		function ContainerContent:Button(text, content, callback)
 			local BtnDescToggled = false
 			local Button = Instance.new("TextButton")
 			local ButtonCorner = Instance.new("UICorner")
@@ -2353,9 +2284,6 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			local CircleCorner = Instance.new("UICorner")
 			local CircleSmall = Instance.new("Frame")
 			local CircleSmallCorner = Instance.new("UICorner")
-			local Description = Instance.new("TextLabel")
-			local ArrowBtn = Instance.new("ImageButton")
-			local ArrowIco = Instance.new("ImageLabel")
 
 			Button.Name = "Button"
 			if content == 1 then
@@ -2372,11 +2300,7 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			Button.Text = ""
 			Button.TextColor3 = Color3.fromRGB(0, 0, 0)
 			Button.TextSize = 14.000
-			if _G.NoBackGround then
-				Button.BackgroundTransparency = 0.7
-			else
-				Button.BackgroundTransparency = 0
-			end
+			Button.BackgroundTransparency = BGTransparency
 
 			ButtonCorner.CornerRadius = UDim.new(0, 4)
 			ButtonCorner.Name = "ButtonCorner"
@@ -2407,53 +2331,6 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			CircleCorner.Name = "CircleCorner"
 			CircleCorner.Parent = Circle
 
-			CircleSmall.Name = "CircleSmall"
-			CircleSmall.Parent = Circle
-			CircleSmall.Active = true
-			CircleSmall.AnchorPoint = Vector2.new(0.5, 0.5)
-			CircleSmall.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-			CircleSmall.BackgroundTransparency = 1.000
-			CircleSmall.Position = UDim2.new(0, 0, 0.475, 0)
-			CircleSmall.Size = UDim2.new(0, 11, 0, 11)
-
-			CircleSmallCorner.CornerRadius = UDim.new(2, 6)
-			CircleSmallCorner.Name = "CircleSmallCorner"
-			CircleSmallCorner.Parent = CircleSmall
-
-			Description.Name = "Description"
-			Description.Parent = Title
-			Description.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Description.BackgroundTransparency = 1.000
-			Description.Position = UDim2.new(-0.1, 0, 0.9, 0)
-			Description.Size = UDim2.new(0, 205, 0, 35)
-			Description.Font = Enum.Font.Gotham
-			Description.Text = desc
-			Description.TextColor3 = Color3.fromRGB(255, 255, 255)
-			Description.TextSize = 15.000
-			Description.TextTransparency = 1
-			Description.TextWrapped = true
-			Description.TextXAlignment = Enum.TextXAlignment.Left
-
-			ArrowBtn.Name = "ArrowBtn"
-			ArrowBtn.Parent = Button
-			ArrowBtn.BackgroundColor3 = Color3.fromRGB(86, 86, 86)
-			ArrowBtn.BackgroundTransparency = 1.000
-			ArrowBtn.Position = UDim2.new(0.8, 0, 0, 0)
-			ArrowBtn.Size = UDim2.new(0, 33, 0, 37)
-			ArrowBtn.SliceCenter = Rect.new(30, 30, 30, 30)
-			ArrowBtn.SliceScale = 7.000
-
-			ArrowIco.Name = "ArrowIco"
-			ArrowIco.Parent = ArrowBtn
-			ArrowIco.AnchorPoint = Vector2.new(0.5, 0.5)
-			ArrowIco.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			ArrowIco.BackgroundTransparency = 1.000
-			ArrowIco.Position = UDim2.new(0.5, 0, 0.5, 0)
-			ArrowIco.Selectable = true
-			ArrowIco.Size = UDim2.new(0, 28, 0, 24)
-			ArrowIco.Image = "http://www.roblox.com/asset/?id=6034818372"
-			ArrowIco.ImageTransparency = .3
-
 			Button.MouseEnter:Connect(function()
 				TweenService:Create(Title, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 0}):Play()
 			end)
@@ -2465,18 +2342,230 @@ function Flux:Window(text, bottom, mainclr, toclose)
 			Button.MouseButton1Click:Connect(function()
 				pcall(callback)
 			end)
+			if content == 1 then
+				LeftContain.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
+			elseif content == 2 then
+				RightContain.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
+			end
+		end
+		function ContainerContent:Toggle(text, default, content, callback)
+			local Toggled = false
+			local Toggle = Instance.new("TextButton")
+			local ToggleCorner = Instance.new("UICorner")
+			local Title = Instance.new("TextLabel")
+			local Circle = Instance.new("Frame")
+			local CircleCorner = Instance.new("UICorner")
+			local CircleSmall = Instance.new("Frame")
+			local CircleSmallCorner = Instance.new("UICorner")
+			local ToggleFrame = Instance.new("Frame")
+			local ToggleFrameCorner = Instance.new("UICorner")
+			local ToggleCircle = Instance.new("Frame")
+			local ToggleCircleCorner = Instance.new("UICorner")
 
-			ArrowBtn.MouseButton1Click:Connect(function()
-				if BtnDescToggled == false then
-					Button:TweenSize(UDim2.new(0, 216, 0, 74), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+			Toggle.Name = "Toggle"
+			if content == 1 then
+				Toggle.Parent = LeftContain
+			elseif content == 2 then
+				Toggle.Parent = RightContain
+			end
+			Toggle.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+			Toggle.ClipsDescendants = true
+			Toggle.Position = UDim2.new(0.370312512, 0, 0.552631557, 0)
+			Toggle.Size = UDim2.new(0, 226, 0, 43)
+			Toggle.AutoButtonColor = false
+			Toggle.Font = Enum.Font.SourceSans
+			Toggle.Text = ""
+			Toggle.TextColor3 = Color3.fromRGB(0, 0, 0)
+			Toggle.TextSize = 14.000
+			Toggle.BackgroundTransparency = BGTransparency
+
+			ToggleCorner.CornerRadius = UDim.new(0, 4)
+			ToggleCorner.Name = "ToggleCorner"
+			ToggleCorner.Parent = Toggle
+
+			Title.Name = "Title"
+			Title.Parent = Toggle
+			Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Title.BackgroundTransparency = 1.000
+			Title.Position = UDim2.new(0.0822437406, 0, 0, 0)
+			Title.Size = UDim2.new(0, 113, 0, 42)
+			Title.Font = Enum.Font.Gotham
+			Title.Text = text
+			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+			Title.TextSize = 15.000
+			Title.TextTransparency = 0.300
+			Title.TextXAlignment = Enum.TextXAlignment.Center
+
+			Circle.Name = "Circle"
+			Circle.Parent = Title
+			Circle.Active = true
+			Circle.AnchorPoint = Vector2.new(0.5, 0.5)
+			Circle.BackgroundColor3 = Color3.fromRGB(211, 211, 211)
+			Circle.Position = UDim2.new(0, 0, 0.475, 0)
+			Circle.Size = UDim2.new(0, 11, 0, 11)
+
+			CircleCorner.CornerRadius = UDim.new(2, 6)
+			CircleCorner.Name = "CircleCorner"
+			CircleCorner.Parent = Circle
+
+			ToggleFrame.Name = "ToggleFrame"
+			ToggleFrame.Parent = Circle
+			ToggleFrame.BackgroundColor3 = Color3.fromRGB(226, 227, 227)
+			ToggleFrame.Position = UDim2.new(0, 175, 0, 0)
+			ToggleFrame.Size = UDim2.new(0, 27, 0, 11)
+
+			ToggleFrameCorner.Name = "ToggleFrameCorner"
+			ToggleFrameCorner.Parent = ToggleFrame
+
+			ToggleCircle.Name = "ToggleCircle"
+			ToggleCircle.Parent = ToggleFrame
+			ToggleCircle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			ToggleCircle.Position = UDim2.new(0, 0, -0.272727281, 0)
+			ToggleCircle.Selectable = true
+			ToggleCircle.Size = UDim2.new(0, 17, 0, 17)
+
+			ToggleCircleCorner.CornerRadius = UDim.new(2, 8)
+			ToggleCircleCorner.Name = "ToggleCircleCorner"
+			ToggleCircleCorner.Parent = ToggleCircle
+
+		    Toggle.MouseEnter:Connect(function()
+				TweenService:Create(Title, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 0}):Play()
+			end)
+
+			Toggle.MouseLeave:Connect(function()
+				TweenService:Create(Title, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 0.3}):Play()
+			end)
+
+			Toggle.MouseButton1Click:Connect(function()
+				if Toggled == false then
+					ToggleCircle:TweenPosition(UDim2.new(0.37, 0,-0.273, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
+					TweenService:Create(ToggleCircle, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = MainColor}):Play()
+				else
+					ToggleCircle:TweenPosition(UDim2.new(0, 0,-0.273, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
+					TweenService:Create(ToggleCircle, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(255,255,255)}):Play()
+				end
+				Toggled = not Toggled
+				pcall(callback, Toggled)
+			end)
+
+			if default == true then
+				ToggleCircle:TweenPosition(UDim2.new(0.37, 0,-0.273, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
+				TweenService:Create(ToggleCircle, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = MainColor}):Play()
+				Toggled = not Toggled
+				pcall(callback, Toggled)
+			end
+			if content == 1 then
+				LeftContain.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
+			elseif content == 2 then
+				RightContain.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
+			end
+		end
+		function ContainerContent:Dropdown(text, list, callback)
+			local DropFunc = {}
+			local Selected = text
+			local FrameSize = 43
+			local ItemCount = 0
+			local DropToggled = false
+			local Dropdown = Instance.new("TextButton")
+			local DropdownCorner = Instance.new("UICorner")
+			local Title = Instance.new("TextLabel")
+			local Circle = Instance.new("Frame")
+			local CircleCorner = Instance.new("UICorner")
+			local ArrowIco = Instance.new("ImageLabel")
+			local DropItemHolder = Instance.new("ScrollingFrame")
+			local DropLayout = Instance.new("UIListLayout")
+
+			Dropdown.Name = "Dropdown"
+			if content == 1 then
+				Dropdown.Parent = LeftContain
+			elseif content == 2 then
+				Dropdown.Parent = RightContain
+			end
+			Dropdown.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+			Dropdown.ClipsDescendants = true
+			Dropdown.Position = UDim2.new(0.370312512, 0, 0.552631557, 0)
+			Dropdown.Size = UDim2.new(0, 226, 0, 43)
+			Dropdown.AutoButtonColor = false
+			Dropdown.Font = Enum.Font.SourceSans
+			Dropdown.Text = ""
+			Dropdown.TextColor3 = Color3.fromRGB(0, 0, 0)
+			Dropdown.TextSize = 14.000
+			Dropdown.BackgroundTransparency = BGTransparency
+
+			DropdownCorner.CornerRadius = UDim.new(0, 4)
+			DropdownCorner.Name = "DropdownCorner"
+			DropdownCorner.Parent = Dropdown
+
+			Title.Name = "Title"
+			Title.Parent = Dropdown
+			Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Title.BackgroundTransparency = 1.000
+			Title.Position = UDim2.new(0.0822437406, 0, 0, 0)
+			Title.Size = UDim2.new(0, 113, 0, 42)
+			Title.Font = Enum.Font.Gotham
+			Title.Text = text
+			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+			Title.TextSize = 15.000
+			Title.TextTransparency = 0.300
+			Title.TextXAlignment = Enum.TextXAlignment.Center
+
+			Circle.Name = "Circle"
+			Circle.Parent = Title
+			Circle.Active = true
+			Circle.AnchorPoint = Vector2.new(0.5, 0.5)
+			Circle.BackgroundColor3 = Color3.fromRGB(211, 211, 211)
+			Circle.Position = UDim2.new(0, 0, 0.475, 0)
+			Circle.Size = UDim2.new(0, 11, 0, 11)
+
+			CircleCorner.CornerRadius = UDim.new(2, 6)
+			CircleCorner.Name = "CircleCorner"
+			CircleCorner.Parent = Circle
+
+			ArrowIco.Name = "ArrowIco"
+			ArrowIco.Parent = Title
+			ArrowIco.AnchorPoint = Vector2.new(0.5, 0.5)
+			ArrowIco.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			ArrowIco.BackgroundTransparency = 1.000
+			ArrowIco.Position = UDim2.new(3.45979357, 0, 0.508096159, 0)
+			ArrowIco.Selectable = true
+			ArrowIco.Size = UDim2.new(0, 28, 0, 24)
+			ArrowIco.Image = "http://www.roblox.com/asset/?id=6035047377"
+			ArrowIco.ImageTransparency = .3
+
+			DropItemHolder.Name = "DropItemHolder"
+			DropItemHolder.Parent = Title
+			DropItemHolder.Active = true
+			DropItemHolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			DropItemHolder.BackgroundTransparency = 1.000
+			DropItemHolder.BorderSizePixel = 0
+			DropItemHolder.Position = UDim2.new(-0.203539819, 0, 1.02380955, 0)
+			DropItemHolder.Size = UDim2.new(0, 226, 0, 43)
+			DropItemHolder.CanvasSize = UDim2.new(0, 0, 0, 0)
+			DropItemHolder.ScrollBarThickness = 5
+			DropItemHolder.ScrollBarImageColor3 = Color3.fromRGB(41, 42, 48)
+
+			DropLayout.Name = "DropLayout"
+			DropLayout.Parent = DropItemHolder
+			DropLayout.SortOrder = Enum.SortOrder.LayoutOrder
+			DropLayout.Padding = UDim.new(0, 2)
+
+			Dropdown.MouseEnter:Connect(function()
+				TweenService:Create(Title, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 0}):Play()
+			end)
+
+			Dropdown.MouseLeave:Connect(function()
+				TweenService:Create(Title, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 0.3}):Play()
+			end)
+
+			Dropdown.MouseButton1Click:Connect(function()
+				if DropToggled == false then
+					Title.Text = text..' : '..Selected
+					Dropdown:TweenSize(UDim2.new(0, 228.5, 0, FrameSize), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
 					TweenService:Create(Title, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = MainColor}):Play()
 					TweenService:Create(ArrowIco, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageColor3 = MainColor}):Play()
 					TweenService:Create(ArrowIco, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = 0}):Play()
 					TweenService:Create(ArrowIco, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Rotation = 180}):Play()
-					TweenService:Create(Circle, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),	{BackgroundColor3 = MainColor}):Play()
-					TweenService:Create(CircleSmall, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 0}):Play()
 					TweenService:Create(Title, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 0}):Play()
-					TweenService:Create(Description, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 0.3}):Play()
 					wait(.4)
 					if content == 1 then
 						LeftContain.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
@@ -2484,15 +2573,13 @@ function Flux:Window(text, bottom, mainclr, toclose)
 						RightContain.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 					end
 				else
-					Button:TweenSize(UDim2.new(0, 216, 0, 43), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+					Title.Text = text..' : '..Selected
+					Dropdown:TweenSize(UDim2.new(0, 228.5, 0, 43), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
 					TweenService:Create(Title, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = Color3.fromRGB(255,255,255)}):Play()
 					TweenService:Create(ArrowIco, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageColor3 = Color3.fromRGB(255,255,255)}):Play()
 					TweenService:Create(ArrowIco, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = .3}):Play()
 					TweenService:Create(ArrowIco, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Rotation = 0}):Play()
-					TweenService:Create(Circle, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),	{BackgroundColor3 = Color3.fromRGB(211, 211, 211)}):Play()
-					TweenService:Create(CircleSmall, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
 					TweenService:Create(Title, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 0.3}):Play()
-					TweenService:Create(Description, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 1}):Play()
 					wait(.4)
 					if content == 1 then
 						LeftContain.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
@@ -2500,13 +2587,169 @@ function Flux:Window(text, bottom, mainclr, toclose)
 						RightContain.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 					end
 				end
-				BtnDescToggled = not BtnDescToggled
+				DropToggled = not DropToggled
 			end)
-			if content == 1 then
-				LeftContain.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
-			elseif content == 2 then
-				RightContain.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
+
+			for i, v in next, list do
+				ItemCount = ItemCount + 1
+
+				if ItemCount == 1 then
+					FrameSize = 78
+				elseif ItemCount == 2 then
+					FrameSize = 107
+				elseif ItemCount >= 3 then
+					FrameSize = 133
+				end
+
+				local Item = Instance.new("TextButton")
+				local ItemCorner = Instance.new("UICorner")
+
+				Item.Name = "Item"
+				Item.Parent = DropItemHolder
+				Item.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+				Item.ClipsDescendants = true
+				Item.Size = UDim2.new(0, 213,5, 0, 25)
+				Item.AutoButtonColor = false
+				Item.Font = Enum.Font.Gotham
+				Item.Text = v
+				Item.TextColor3 = Color3.fromRGB(255, 255, 255)
+				Item.TextSize = 15.000
+				Item.TextTransparency = 0.300
+				Item.BackgroundTransparency = BGTransparency
+
+				ItemCorner.CornerRadius = UDim.new(0, 4)
+				ItemCorner.Name = "ItemCorner"
+
+				ItemCorner.Parent = Item
+				DropItemHolder.CanvasSize = UDim2.new(0, 0, 0, DropLayout.AbsoluteContentSize.Y)
+
+				Item.MouseEnter:Connect(function()
+					TweenService:Create(Item, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 0}):Play()
+				end)
+
+				Item.MouseLeave:Connect(function()
+					TweenService:Create(Item, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 0.3}):Play()
+				end)
+
+				Item.MouseButton1Click:Connect(function()
+					pcall(callback, v)
+					Title.Text = text
+					Selected = v
+					DropToggled = not DropToggled
+					Dropdown:TweenSize(UDim2.new(0, 228.5, 0, 43), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+					TweenService:Create(Title, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = Color3.fromRGB(255,255,255)}):Play()
+					TweenService:Create(ArrowIco, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageColor3 = Color3.fromRGB(255,255,255)}):Play()
+					TweenService:Create(ArrowIco, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = .3}):Play()
+					TweenService:Create(ArrowIco, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Rotation = 0}):Play()
+					TweenService:Create(Title, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 0.3}):Play()
+					wait(.4)
+					if content == 1 then
+						LeftContain.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
+					elseif content == 2 then
+						RightContain.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
+					end
+				end)
 			end
+			function DropFunc:Add(addtext)
+				ItemCount = ItemCount + 1
+
+				if ItemCount == 1 then
+					FrameSize = 78
+				elseif ItemCount == 2 then
+					FrameSize = 107
+				elseif ItemCount >= 3 then
+					FrameSize = 133
+				end
+
+				local Item = Instance.new("TextButton")
+				local ItemCorner = Instance.new("UICorner")
+
+				Item.Name = "Item"
+				Item.Parent = DropItemHolder
+				Item.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+				Item.ClipsDescendants = true
+				Item.Size = UDim2.new(0, 213,5, 0, 25)
+				Item.AutoButtonColor = false
+				Item.Font = Enum.Font.Gotham
+				Item.Text = addtext
+				Item.TextColor3 = Color3.fromRGB(255, 255, 255)
+				Item.TextSize = 15.000
+				Item.TextTransparency = 0.300
+				Item.BackgroundTransparency = BGTransparency
+
+				ItemCorner.CornerRadius = UDim.new(0, 4)
+				ItemCorner.Name = "ItemCorner"
+				ItemCorner.Parent = Item
+				DropItemHolder.CanvasSize = UDim2.new(0, 0, 0, DropLayout.AbsoluteContentSize.Y)
+
+				Item.MouseEnter:Connect(function()
+					TweenService:Create(Item, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 0}):Play()
+				end)
+
+				Item.MouseLeave:Connect(function()
+					TweenService:Create(Item, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 0.3}):Play()
+				end)
+
+				Item.MouseButton1Click:Connect(function()
+					pcall(callback, addtext)
+					Title.Text = text
+					Selected = addtext
+					DropToggled = not DropToggled
+					Dropdown:TweenSize(UDim2.new(0, 228,5, 0, 43), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+					TweenService:Create(Title, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = Color3.fromRGB(255,255,255)}):Play()
+					TweenService:Create(ArrowIco, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageColor3 = Color3.fromRGB(255,255,255)}):Play()
+					TweenService:Create(ArrowIco, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = .3}):Play()
+					TweenService:Create(ArrowIco, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Rotation = 0}):Play()
+					TweenService:Create(Title, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 0.3}):Play()
+					wait(.4)
+					if content == 1 then
+						LeftContain.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
+					elseif content == 2 then
+						RightContain.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
+					end
+				end)
+				if DropToggled == true then
+					Title.Text = text..' : '..Selected
+					Dropdown:TweenSize(UDim2.new(0, 228.5, 0, 43), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+					TweenService:Create(Title, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = Color3.fromRGB(255,255,255)}):Play()
+					TweenService:Create(ArrowIco, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageColor3 = Color3.fromRGB(255,255,255)}):Play()
+					TweenService:Create(ArrowIco, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = .3}):Play()
+					TweenService:Create(ArrowIco, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Rotation = 0}):Play()
+					TweenService:Create(Title, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 0.3}):Play()
+					wait(.4)
+					if content == 1 then
+						LeftContain.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
+					elseif content == 2 then
+						RightContain.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
+					end
+				end
+			end
+			function DropFunc:Clear()
+				Title.Text = text
+				FrameSize = 0
+				ItemCount = 0
+				for i, v in next, DropItemHolder:GetChildren() do
+					if v.Name == "Item" then
+						v:Destroy()
+					end
+				end
+				if DropToggled == true then
+					Title.Text = text..' : '..Selected
+					Dropdown:TweenSize(UDim2.new(0, 228.5, 0, 43), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+					TweenService:Create(Title, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = Color3.fromRGB(255,255,255)}):Play()
+					TweenService:Create(ArrowIco, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageColor3 = Color3.fromRGB(255,255,255)}):Play()
+					TweenService:Create(ArrowIco, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = .3}):Play()
+					TweenService:Create(ArrowIco, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Rotation = 0}):Play()
+					TweenService:Create(Title, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 0.3}):Play()
+					wait(.4)
+					if content == 1 then
+						LeftContain.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
+					elseif content == 2 then
+						RightContain.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
+					end
+				end
+			end
+			return DropFunc
 		end
 		return ContainerContent
 	end
